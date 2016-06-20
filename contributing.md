@@ -2,6 +2,8 @@
 
 ## Bug Reports
 
+[AP] Be more precised [/AP]
+
 If you think you have found a bug in CTA, first make sure that you are testing against the latest version of Compass Test Automation - your issue may already have been fixed.
 If not, search our [issues list](https://git.sami.int.thomsonreuters.com/compass/cta-master/issues) on GitLab in case a similar issue has already been opened.
 
