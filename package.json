@@ -1,0 +1,22 @@
+{
+  "name": "cta",
+  "version": "1.0.0",
+  "description": "Compass Test Automation main repository",
+  "author": "CTA Team <cta@thomsonreuters.com>",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@git.sami.int.thomsonreuters.com:compass/cta.git"
+  },
+  "engines": {
+    "node": "6.8.1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "fs": "0.0.1-security",
+    "mkdirp": "^0.5.1",
+    "sinon": "^1.17.6"
+  },
+  "license": "Apache-2.0"
+}
