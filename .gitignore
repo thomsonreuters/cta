@@ -1,2 +1,4 @@
 node_modules
-sources
+src
+logs
+draft
