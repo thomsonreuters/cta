@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "co": "^4.6.0",
-    "co-foreach": "^1.1.1",
     "jsonfile": "~2.2.3",
     "lodash": "~4.6.1",
     "mkdirp": "~0.5.1",
