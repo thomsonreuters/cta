@@ -1,10 +1,5 @@
 'use strict';
 
-const init = require('../../lib/init');
-const clone = require('../../lib/clone');
-const pull = require('../../lib/pull');
-const install = require('../../lib/install');
-
 const path = require('path');
 const os = require('os');
 const assert = require('chai').assert;
@@ -13,44 +8,39 @@ const mkdirp = require('mkdirp');
 const rmdir = require('rmdir');
 const fs = require('fs');
 
-const base = path.join(os.tmpDir(), 'cta', String(Date.now()));
-const test = {
-  base: base,
-  project: path.join(base, 'cta-repo-sample'),
-  url: 'git@git.sami.int.thomsonreuters.com:compass/cta-repo-sample.git',
+const base = path.join(os.tmpDir(), 'cta', String(Date.now()), 'src');
+const config = {
+  sources: base,
+  packages: path.resolve(base, '..', 'node_modules'),
+  log: path.resolve(base, '..', 'output.log'),
+  repositories: {
+    one: 'git@git.sami.int.thomsonreuters.com:compass/cta-repo-sample.git',
+    two: 'git@git.sami.int.thomsonreuters.com:compass/cta-repo-sample.git'
+  },
 };
 
+const Master = require('../../lib/master');
+const master = new Master(config);
+
 describe('tests', () => {
-  /*after((done) => {
+  after((done) => {
     rmdir(base, (err) => {
       if (err) {
         console.error(err);
       }
       done();
     });
-  });*/
+  });
 
   describe('init', () => {
     it("should create source dir when it doesn't exist", (done) => {
       const _sync = sinon.spy(mkdirp, 'sync');
-      init(test.base)
-        .then((output) => {
+      master.init()
+        .then(() => {
           _sync.restore();
-          sinon.assert.calledOnce(_sync);
-          assert(output);
-          done();
-        })
-        .catch((err) => {
-          done(err);
-        });
-    });
-    it('should not create source dir when it already exists', (done) => {
-      const _sync = sinon.spy(mkdirp, 'sync');
-      init(test.base)
-        .then((output) => {
-          _sync.restore();
-          sinon.assert.notCalled(_sync);
-          assert(output);
+          sinon.assert.calledTwice(_sync);
+          assert.isOk(fs.existsSync(master.config.sources));
+          assert.isOk(fs.existsSync(master.config.packages));
           done();
         })
         .catch((err) => {
@@ -60,8 +50,8 @@ describe('tests', () => {
   });
 
   describe('clone', () => {
-    it("should clone repository when destination doesn't exist", (done) => {
-      clone(test.url, test.base)
+    it("should clone repository one", (done) => {
+      master.clone('one')
         .then(() => {
           done();
         })
@@ -69,20 +59,20 @@ describe('tests', () => {
           done(err);
         });
     });
-    it('should not clone repository when destination already exists', (done) => {
-      clone(test.url, test.base)
+    it("should clone repository two", (done) => {
+      master.clone('two')
         .then(() => {
-          done('should not be here');
+          done();
         })
         .catch((err) => {
-          done();
+          done(err);
         });
     });
   });
 
   describe('pull', () => {
     it('should pull folder when it is a git repository', (done) => {
-      pull(test.project)
+      master.pull('one')
         .then(() => {
           done();
         })
@@ -90,20 +80,11 @@ describe('tests', () => {
           done(err);
         });
     });
-    it('should not pull repository when it is not a git repo', (done) => {
-      pull(os.tmpDir())
-        .then(() => {
-          done('should not be here');
-        })
-        .catch((err) => {
-          done();
-        });
-    });
   });
 
   describe('install', () => {
-    it('should run npm install on cloned git repository', (done) => {
-      install(test.project)
+    it('should install npm dependencies', (done) => {
+      master.install()
         .then(() => {
           done();
         })
@@ -111,14 +92,5 @@ describe('tests', () => {
           done(err);
         });
     }).timeout(60000);
-    it('should not pull repository when it is not a git repo', (done) => {
-      pull(os.tmpDir())
-        .then(() => {
-          done('should not be here');
-        })
-        .catch((err) => {
-          done();
-        });
-    });
   });
 });

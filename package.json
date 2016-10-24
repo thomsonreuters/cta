@@ -4,7 +4,11 @@
   "description": "Compass Test Automation main repository",
   "author": "CTA Team <cta@thomsonreuters.com>",
   "scripts": {
-    "install": "node lib"
+    "install": "node lib",
+    "all": "node lib",
+    "clone": "node lib -c",
+    "pull": "node lib -p",
+    "test": "grunt test --force"
   },
   "repository": {
     "type": "git",
@@ -16,11 +20,11 @@
   "dependencies": {
     "co": "^4.6.0",
     "co-foreach": "^1.1.1",
-    "simple-git": "^1.54.0",
     "jsonfile": "~2.2.3",
     "lodash": "~4.6.1",
     "mkdirp": "~0.5.1",
     "q": "~1.4.1",
+    "simple-git": "^1.54.0",
     "winston": "~2.1.1",
     "yargs": "~4.6.0"
   },

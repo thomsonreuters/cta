@@ -36,11 +36,11 @@ config.packages = custom.packages || path.resolve(__dirname, '..', 'node_modules
 
 /* *****************************************************************************************
  *                                                                                         *
- * The full path to a log directory where to save logs                                     *
+ * The full path to a log file where to save logs                                          *
  *                                                                                         *
  ******************************************************************************************/
 
-config.logs = custom.logs || path.resolve(__dirname, '..', 'logs');
+config.log = custom.log || path.resolve(__dirname, '..', 'logs', 'output.log');
 
 /* *****************************************************************************************
  *                                                                                         *
