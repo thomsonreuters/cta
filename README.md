@@ -8,7 +8,7 @@ CTA opensource main repository
 
 1. Clone this repository
 2. Run `npm install` inside cloned folder
-3. In your preferred IDE set your wour working directory as `./src/node_modules` (see why we work inside node_modules in next sections)
+3. In your preferred IDE set your working directory as `./src/node_modules` (see why we work inside node_modules in next sections)
  
 ## How does it work
 
