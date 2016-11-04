@@ -32,7 +32,9 @@
     "fs": "0.0.1-security",
     "mkdirp": "^0.5.1",
     "rmdir": "^1.2.0",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "grunt": "~1.0.1",
+    "grunt-mocha-test": "~0.12.7"
   },
   "license": "Apache-2.0"
 }

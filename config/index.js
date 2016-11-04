@@ -42,6 +42,15 @@ config.packages = custom.packages || path.resolve(__dirname, '..', 'node_modules
 
 config.log = custom.log || path.resolve(__dirname, '..', 'logs', 'output.log');
 
+
+/* *****************************************************************************************
+ *                                                                                         *
+ * Prefix of CTA repositories folders names, used to check if a folder is a CTA repo       *
+ *                                                                                         *
+ ******************************************************************************************/
+
+config.prefix = custom.prefix || 'cta-';
+
 /* *****************************************************************************************
  *                                                                                         *
  * CTA known repositories that will be cloned/updated each time your run the tool          *
