@@ -4,7 +4,7 @@
   "description": "Compass Test Automation main repository",
   "author": "CTA Team <cta@thomsonreuters.com>",
   "scripts": {
-    "install": "node lib",
+    "postinstall": "node lib",
     "all": "node lib",
     "clone": "node lib -c",
     "pull": "node lib -p",
