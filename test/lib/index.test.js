@@ -7,6 +7,8 @@ const sinon = require('sinon');
 const mkdirp = require('mkdirp');
 const rmdir = require('rmdir');
 const fs = require('fs');
+const jsonfile = require('jsonfile');
+const common = require('../../lib/common');
 
 const root = path.join(os.tmpDir(), 'cta', String(Date.now()));
 const config = {
@@ -42,6 +44,8 @@ describe('tests', () => {
           sinon.assert.calledTwice(_sync);
           assert.isOk(fs.existsSync(master.config.sources));
           assert.isOk(fs.existsSync(master.config.packages));
+          const eslint = path.resolve(master.config.sources, '.eslintrc');
+          assert.isOk(common.isFile(eslint));
           done();
         })
         .catch((err) => {
@@ -54,6 +58,8 @@ describe('tests', () => {
     it("should clone repository one", (done) => {
       master.clone('one')
         .then(() => {
+          const one = path.resolve(master.config.sources, 'one');
+          assert.isOk(fs.existsSync(one));
           done();
         })
         .catch((err) => {
@@ -63,6 +69,8 @@ describe('tests', () => {
     it("should clone repository two", (done) => {
       master.clone('two')
         .then(() => {
+          const two = path.resolve(master.config.sources, 'two');
+          assert.isOk(fs.existsSync(two));
           done();
         })
         .catch((err) => {
@@ -87,6 +95,14 @@ describe('tests', () => {
     it('should install npm dependencies', (done) => {
       master.install()
         .then(() => {
+          const lodashDir = path.resolve(master.config.packages, 'lodash');
+          assert.isOk(fs.existsSync(lodashDir));
+          const lodashPkg = jsonfile.readFileSync(path.resolve(lodashDir, 'package.json'));
+          assert.strictEqual(lodashPkg.version, '4.6.1');
+          const bsonDir = path.resolve(master.config.packages, 'bson');
+          assert.isOk(fs.existsSync(bsonDir));
+          const bsonPkg = jsonfile.readFileSync(path.resolve(bsonDir, 'package.json'));
+          assert.strictEqual(bsonPkg.version, '0.5.6');
           done();
         })
         .catch((err) => {
