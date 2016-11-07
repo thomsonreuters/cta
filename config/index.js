@@ -11,18 +11,26 @@ try {
     console.log('Loading custom configuration');
   }
 } catch (e) {
-    console.log('Using default configuration');
+  console.log('Using default configuration');
 }
 
 /* *****************************************************************************************
  *                                                                                         *
- * Working directory where all CTA projects will be cloned to                              *
+ * Working root directory                                                                  *
+ *                                                                                         *
+ ******************************************************************************************/
+
+config.root = custom.root || path.resolve(__dirname, '..');
+
+/* *****************************************************************************************
+ *                                                                                         *
+ * Sources directory where all CTA projects will be cloned to                              *
  * It should end with node_modules                                                         *
  * See why in readme file                                                                  *
  *                                                                                         *
  ******************************************************************************************/
 
-config.sources = custom.sources || path.resolve(__dirname, '..', 'src', 'node_modules');
+config.sources = custom.sources || path.resolve(config.root, 'src', 'node_modules');
 
 /* *****************************************************************************************
  *                                                                                         *
@@ -32,7 +40,7 @@ config.sources = custom.sources || path.resolve(__dirname, '..', 'src', 'node_mo
  *                                                                                         *
  ******************************************************************************************/
 
-config.packages = custom.packages || path.resolve(__dirname, '..', 'node_modules');
+config.packages = custom.packages || path.resolve(config.root, 'node_modules');
 
 /* *****************************************************************************************
  *                                                                                         *
@@ -40,7 +48,7 @@ config.packages = custom.packages || path.resolve(__dirname, '..', 'node_modules
  *                                                                                         *
  ******************************************************************************************/
 
-config.log = custom.log || path.resolve(__dirname, '..', 'logs', 'output.log');
+config.log = custom.log || path.resolve(config.root, 'logs', 'output.log');
 
 
 /* *****************************************************************************************

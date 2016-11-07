@@ -8,14 +8,15 @@ const mkdirp = require('mkdirp');
 const rmdir = require('rmdir');
 const fs = require('fs');
 
-const base = path.join(os.tmpDir(), 'cta', String(Date.now()), 'src');
+const root = path.join(os.tmpDir(), 'cta', String(Date.now()));
 const config = {
-  sources: base,
-  packages: path.resolve(base, '..', 'node_modules'),
-  log: path.resolve(base, '..', 'output.log'),
+  root: root,
+  sources: path.resolve(root, 'src', 'node_modules'),
+  packages: path.resolve(root, 'node_modules'),
+  log: path.resolve(root, 'output.log'),
   repositories: {
-    one: 'git@git.sami.int.thomsonreuters.com:compass/cta-repo-sample.git',
-    two: 'git@git.sami.int.thomsonreuters.com:compass/cta-repo-sample.git'
+    one: 'git@git.sami.int.thomsonreuters.com:compass/cta-sampleone.git',
+    two: 'git@git.sami.int.thomsonreuters.com:compass/cta-sampletwo.git'
   },
 };
 
@@ -23,14 +24,14 @@ const Master = require('../../lib/master');
 const master = new Master(config);
 
 describe('tests', () => {
-  after((done) => {
+  /*after((done) => {
     rmdir(base, (err) => {
       if (err) {
         console.error(err);
       }
       done();
     });
-  });
+  });*/
 
   describe('init', () => {
     it("should create source dir when it doesn't exist", (done) => {
