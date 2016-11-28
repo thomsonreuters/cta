@@ -1,0 +1,50 @@
+version: '2'
+networks:
+  stub_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.242.0/24
+        gateway: 172.16.242.1
+services:
+  mongo:
+    image: "mongo:3.2"
+    volumes:
+      - /var/lib/mongo:/var/lib/mongo
+    networks:
+      stub_net:
+        ipv4_address: 172.16.242.2
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SCJIOIWZOIWZOIWZZPQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+    ports:
+      - "15672:15672"
+    volumes:
+      - /var/lib/rabbitmq:/var/lib/rabbitmq
+    networks:
+      stub_net:
+        ipv4_address: 172.16.242.5
+  eds:
+    image: cta-app-executiondataservice
+    networks:
+      stub_net:
+        ipv4_address: 172.16.242.10
+  sds:
+    image: cta-app-schedulerdataservice
+    networks:
+      stub_net:
+        ipv4_address: 172.16.242.20
+  jobmanager:
+    image: cta-jobmanager
+    networks:
+      stub_net:
+        ipv4_address: 172.16.242.30
+  agent:
+    image: cta-app-agent
+    networks:
+      stub_net:
+        ipv4_address: 172.16.242.100
