@@ -104,6 +104,7 @@ config.repositories = custom.repositories || {
   "cta-tool": "git@git.sami.int.thomsonreuters.com:compass/cta-tool.git",
   "cta-tool-boilerplate": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-boilerplate.git",
   "cta-tool-request": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-request.git",
+  "cta-app-healthcheckdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-healthcheckdataservice.git",
 };
 
 module.exports = config;
