@@ -44,6 +44,7 @@
     "grunt-mocha-test": "~0.12.7",
     "load-grunt-tasks": "^3.5.2",
     "mkdirp": "^0.5.1",
+    "require-subvert": "^0.1.0",
     "rmdir": "^1.2.0",
     "sinon": "^1.17.6"
   },
