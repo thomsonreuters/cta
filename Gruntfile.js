@@ -4,7 +4,7 @@
 const eslintformat = require('./lib/eslintformat');
 const _ = require('lodash');
 const config = require('./config');
-const common = require('./lib/common');
+const tools = require('./lib/tools');
 const path = require('path');
 const reporter = require('./lib/reporter');
 const data = {};
@@ -14,10 +14,10 @@ global.testData = {};
 const base = config.sources;
 const mochaTest = {};
 const eslintTargets = [];
-data.projects = common.explore(config.sources);
+data.projects = tools.explore(config.sources);
 data.projects.forEach((dir) => {
   const testDir = base + path.sep + dir + path.sep + 'test';
-  if (common.isDir(testDir)) {
+  if (tools.isDir(testDir)) {
     const src = testDir + path.sep + '**' + path.sep + '*.js';
     mochaTest[dir] = {
       options: {

@@ -8,7 +8,7 @@ const mkdirp = require('mkdirp');
 const rmdir = require('rmdir');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
-const common = require('../../lib/common');
+const tools = require('../../lib/tools');
 
 const root = path.join(os.tmpDir(), 'cta', String(Date.now()));
 const config = {
@@ -25,7 +25,7 @@ const config = {
 const Master = require('../../lib/master');
 const master = new Master(config);
 
-describe('tests', () => {
+describe('cta - functional - tests', () => {
   /*after((done) => {
     rmdir(base, (err) => {
       if (err) {
@@ -45,7 +45,7 @@ describe('tests', () => {
           assert.isOk(fs.existsSync(master.config.sources));
           assert.isOk(fs.existsSync(master.config.packages));
           const eslint = path.resolve(master.config.sources, '.eslintrc');
-          assert.isOk(common.isFile(eslint));
+          assert.isOk(tools.isFile(eslint));
           done();
         })
         .catch((err) => {

@@ -3,3 +3,4 @@ node_modules
 src
 draft
 package.installed.json
+config/config.js

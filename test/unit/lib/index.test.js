@@ -1,17 +1,16 @@
 'use strict';
 
-const Master = require('../../../lib/master');
-const sinon = require('sinon');
+const o = require('../common');
 
 describe('cta - index', function() {
   before(function() {
-    sinon.stub(Master.prototype, 'start', () => {});
+    o.sinon.stub(o.Master.prototype, 'start', () => {});
   });
   after(function() {
-    Master.prototype.start.restore();
+    o.Master.prototype.start.restore();
   });
   it('should call start method with passed arguments', function() {
     require('../../../lib/index');
-    sinon.assert.called(Master.prototype.start);
+    o.sinon.assert.called(o.Master.prototype.start);
   });
 });
