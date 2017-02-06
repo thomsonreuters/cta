@@ -1,0 +1,41 @@
+image: node:6.9.1
+
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - 'which ssh-agent || ( yum update -y && yum install openssh-client -y )'
+  # Run ssh-agent (inside the build environment)
+  - eval $(ssh-agent -s)
+  # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  # For Docker builds disable host key checking. Be aware that by adding that
+  # you are suspectible to man-in-the-middle attacks.
+  # WARNING: Use this only with the Docker executor, if you use it with shell
+  # you will overwrite your user's SSH config.
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - npm config set proxy http://webproxy.lon.corp.services:80
+  - npm config set https-proxy http://webproxy.lon.corp.services:80
+  - npm install
+
+unit_test:
+  stage: test
+  script:
+    - npm run test
+
+code_coverage:
+  stage: test
+  script:
+    - npm run codecoverage
+
+lint:
+  stage: test
+  script:
+    - npm run lint
