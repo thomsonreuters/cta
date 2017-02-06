@@ -5,6 +5,7 @@ const assert = require('chai').assert;
 const fs = require('fs');
 const path = require('path');
 const jsonfile = require('jsonfile');
+const git = require('simple-git');
 
 const Master = require('../../lib/master');
 const tools = require('../../lib/tools');
@@ -19,5 +20,6 @@ module.exports = {
   Master,
   config,
   tools,
+  git,
   master: new Master(config),
 };

@@ -25,15 +25,15 @@ before_script:
   - npm config set https-proxy http://webproxy.lon.corp.services:80
   - npm install
 
-unit_test:
-  stage: test
-  script:
-    - npm run unit-test
+#unit_test:
+#  stage: test
+#  script:
+#    - npm run unit-test
 
-code_coverage:
-  stage: test
-  script:
-    - npm run codecoverage
+#code_coverage:
+#  stage: test
+#  script:
+#    - npm run codecoverage
 
 lint:
   stage: test
