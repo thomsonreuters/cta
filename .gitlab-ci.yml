@@ -28,7 +28,7 @@ before_script:
 unit_test:
   stage: test
   script:
-    - npm run test
+    - npm run unit-test
 
 code_coverage:
   stage: test

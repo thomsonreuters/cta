@@ -8,7 +8,11 @@
     "all": "node lib",
     "clone": "node lib -c",
     "pull": "node lib -p",
-    "test": "grunt test --force"
+    "test": "grunt test --force",
+    "unit-test": "NODE_PATH=. _mocha",
+    "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "lint": "eslint --quiet lib test",
+    "docs": "jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
   },
   "repository": {
     "type": "git",
