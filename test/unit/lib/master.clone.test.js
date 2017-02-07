@@ -2,7 +2,7 @@
 
 const o = require('../common');
 
-describe('cta - master - autoUpdate', function() {
+describe('cta - master - clone', function() {
 
   const requireSubvert = require('require-subvert')(__dirname);
 
@@ -10,22 +10,25 @@ describe('cta - master - autoUpdate', function() {
     requireSubvert.cleanUp();
   });
 
-  it('should log error when it fails', function(done) {
+  it('should update instead when folder already exists and is not empty', function(done) {
     const fn = () => {
       return {
-        pull: (cb) => {
-          cb('some_error', null);
+        clone: (url, name, cb) => {
+          cb('already exists and is not an empty directory', null);
         },
       };
     };
     requireSubvert.subvert('simple-git', fn);
     const Master = requireSubvert.require('../../../lib/master');
     const master = new Master(o.config);
+    o.sinon.stub(master, 'pull', (project, options) => {
+      options.deferred.resolve();
+    });
     o.sinon.stub(master.logger, 'log');
-    master.autoUpdate()
-      .then((data) => {
+    master.clone('one', null)
+      .then(() => {
         // console.log('data: ', data);
-        o.assert.strictEqual(data, 'some_error');
+        o.sinon.assert.calledOnce(master.pull);
         done();
       })
       .catch((err) => {
@@ -37,8 +40,8 @@ describe('cta - master - autoUpdate', function() {
   it('should retry twice when it could not read from remote repository', function(done) {
     const fn = () => {
       return {
-        pull: (cb) => {
-          cb('Could not read from remote repository', null);
+        clone: (url, name, cb) => {
+          cb('some_error', null);
         },
       };
     };
@@ -46,10 +49,10 @@ describe('cta - master - autoUpdate', function() {
     const Master = requireSubvert.require('../../../lib/master');
     const master = new Master(o.config);
     o.sinon.stub(master.logger, 'log');
-    master.autoUpdate()
+    master.clone('one', null)
       .then((data) => {
         // console.log('data: ', data);
-        o.assert.strictEqual(data, 'Could not read from remote repository');
+        o.assert.deepEqual(data, {cloned: false, error: 'some_error'});
         // TODO improve this test to track all calls to method autoUpdate
         done();
       })
@@ -59,15 +62,11 @@ describe('cta - master - autoUpdate', function() {
       });
   });
 
-  it('should log changes when update succeed', function(done) {
+  it('should return clone result when done', function(done) {
     const fn = () => {
       return {
-        pull: (cb) => {
-          cb(null, {
-            summary: {
-              changes: 2,
-            },
-          });
+        clone: (url, name, cb) => {
+          cb(null, 'some_data');
         },
       };
     };
@@ -75,10 +74,11 @@ describe('cta - master - autoUpdate', function() {
     const Master = requireSubvert.require('../../../lib/master');
     const master = new Master(o.config);
     o.sinon.stub(master.logger, 'log');
-    master.autoUpdate()
+    master.clone('one', null)
       .then((data) => {
-        // TODO improve this test to check output logs
-        o.assert.strictEqual(data, true);
+        // console.log('data: ', data);
+        o.assert.deepEqual(data, {cloned: true, data: 'some_data'});
+        // TODO improve this test to track all calls to method autoUpdate
         done();
       })
       .catch((err) => {
@@ -87,15 +87,11 @@ describe('cta - master - autoUpdate', function() {
       });
   });
 
-  it('should log no changes when update succeed', function(done) {
+  it('should catch errors when they occurred', function(done) {
     const fn = () => {
       return {
-        pull: (cb) => {
-          cb(null, {
-            summary: {
-              changes: 0,
-            },
-          });
+        clone: () => {
+          throw new Error('some_error');
         },
       };
     };
@@ -103,15 +99,14 @@ describe('cta - master - autoUpdate', function() {
     const Master = requireSubvert.require('../../../lib/master');
     const master = new Master(o.config);
     o.sinon.stub(master.logger, 'log');
-    master.autoUpdate()
-      .then((data) => {
-        // TODO improve this test to check output logs
-        o.assert.strictEqual(data, false);
-        done();
+    master.clone('one', null)
+      .then(() => {
+        done('should not be here');
       })
       .catch((err) => {
         // console.log('error: ', err);
-        done(err);
+        o.assert.strictEqual(err, 'some_error');
+        done();
       });
   });
 });
