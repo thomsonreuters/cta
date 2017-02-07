@@ -13,6 +13,7 @@ const tools = require('../../lib/tools');
 const config = require('./lib/config.testdata');
 
 module.exports = {
+  rootDir: path.resolve(__dirname, '..', '..'),
   sinon,
   assert,
   fs,
