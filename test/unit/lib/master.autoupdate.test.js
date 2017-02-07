@@ -1,15 +1,13 @@
 'use strict';
 
 const o = require('../common');
-const requireSubvert = require('require-subvert')(__dirname);
 
 describe('cta - master - autoUpdate', function() {
-  beforeEach(function() {
 
-  });
+  const requireSubvert = require('require-subvert')(__dirname);
 
-  afterEach(function() {
-
+  after(function() {
+    requireSubvert.cleanUp();
   });
 
   it('should log error when it fails', function(done) {

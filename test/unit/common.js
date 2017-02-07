@@ -2,10 +2,11 @@
 
 const sinon = require('sinon');
 const assert = require('chai').assert;
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const jsonfile = require('jsonfile');
 const git = require('simple-git');
+const mkdirp = require('mkdirp');
 
 const Master = require('../../lib/master');
 const tools = require('../../lib/tools');
@@ -21,5 +22,6 @@ module.exports = {
   config,
   tools,
   git,
+  mkdirp,
   master: new Master(config),
 };
