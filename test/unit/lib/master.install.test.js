@@ -4,7 +4,7 @@ const o = require('../common');
 const childProcess = require('child_process');
 const EventEmitter = require('events');
 
-describe('cta - master - install', function() {
+describe('cta - master.install', function() {
 
   const master = new o.Master(o.config);
 
