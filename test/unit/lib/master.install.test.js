@@ -29,7 +29,6 @@ describe('cta - master.install', function() {
 
   describe('two', function() {
 
-    let temp = {};
     const child = new EventEmitter();
     child.stdout = new EventEmitter();
     child.stderr = new EventEmitter();
@@ -40,11 +39,7 @@ describe('cta - master.install', function() {
       o.sinon.stub(o.fs, 'removeSync');
       o.sinon.stub(process, 'chdir');
       o.sinon.stub(master.logger, 'log');
-      o.sinon.stub(o.jsonfile, 'writeFileSync', (filepath, data) => {
-        if (filepath === o.path.resolve(master.config.root, 'package.json')) {
-          temp = data;
-        }
-      });
+      o.sinon.stub(o.jsonfile, 'writeFileSync');
       o.sinon.stub(o.jsonfile, 'readFileSync')
         .withArgs(o.path.resolve(o.rootDir, 'package.json'))
         .returns({})
@@ -156,9 +151,7 @@ describe('cta - master.install', function() {
     it('when it can not generate installed packages', function(done) {
       o.jsonfile.writeFileSync.restore();
       o.sinon.stub(o.jsonfile, 'writeFileSync', (filepath, data, options, cb) => {
-        if (filepath === o.path.resolve(master.config.root, 'package.json')) {
-          temp = data;
-        } else {
+        if (filepath !== o.path.resolve(master.config.root, 'package.json')) {
           cb('some_error');
         }
       });

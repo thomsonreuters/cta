@@ -76,7 +76,7 @@ describe('cta - master - pull', function() {
     const master = new Master(o.config);
     o.sinon.stub(master.logger, 'log');
     master.pull('one', null)
-      .then((data) => {
+      .then(() => {
         // TODO improve this test to check output logs
         // o.assert.strictEqual(data, true);
         done();
@@ -104,7 +104,7 @@ describe('cta - master - pull', function() {
     const master = new Master(o.config);
     o.sinon.stub(master.logger, 'log');
     master.pull('one', null)
-      .then((data) => {
+      .then(() => {
         // TODO improve this test to check output logs
         // o.assert.strictEqual(data, false);
         done();
@@ -133,7 +133,7 @@ describe('cta - master - pull', function() {
         // o.assert.strictEqual(data, false);
         done('should not be here');
       })
-      .catch((err) => {
+      .catch(() => {
         // console.log('error: ', err);
         done();
       });
