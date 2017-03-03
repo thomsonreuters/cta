@@ -12,10 +12,11 @@
 
 Every User using the system is recorded in the system. Here are the informations kept about the user:
 
-- fist  : First name of the user, i.e.: John
+- id : user ID
+- first : First name of the user, i.e.: John
 - last  : Last name of the user, i.e : Doe
 - email : E-mail of the user, i.e.: john.doe@somewhere.com
-- uid   : User IDentifier
+- uid   : external User IDentifier
 - name  : Display name
 - groups : IDs of the user's groups
 
@@ -25,7 +26,7 @@ Groups can be created to gather users and give them restricted permissions
 
 - name : Group name
 - description : Group description
-- _id  : Group ID
+- id  : Group ID
 
 ## Machines
 
@@ -60,10 +61,11 @@ A configuration targets (a) test machine(s) that will execute scenario and defin
    - mono : execution is sent to the the first machine matching
    - group : execution is sent to a group of machine so the first available treats it
    - stress : execution is sent to all machines in a group so all perform the test at the same time
-   - parallell : execution scenario is decomposed in series of tests so all machines split/share the work together
+   - parallel : execution scenario is decomposed in series of tests so all machines split/share the work together
 
 ## Test
 
+- name : name of test
 - type : type of test, default : command-line
 - testSuiteID
 
