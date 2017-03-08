@@ -82,6 +82,7 @@ config.repositories = custom.repositories || {
   "cta-expresswrapper": "git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
   "cta-flowcontrol": "git@git.sami.int.thomsonreuters.com:compass/cta-flowcontrol.git",
   "cta-io": "git@git.sami.int.thomsonreuters.com:compass/cta-io.git",
+  "cta-healthcheck": "git@git.sami.int.thomsonreuters.com:compass/cta-healthcheck.git",
   "cta-logger": "git@git.sami.int.thomsonreuters.com:compass/cta-logger.git",
   "cta-messaging": "git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
   "cta-security": "git@git.sami.int.thomsonreuters.com:compass/cta-security.git",

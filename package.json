@@ -12,7 +12,10 @@
     "unit-test": "NODE_PATH=. _mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
     "lint": "eslint --quiet lib test",
-    "docs": "jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
+    "docs": "jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html",
+    "docker": "docker build -t cta .",
+    "image": "cd docker && ./image.sh",
+    "shell": "cd docker && ./shell.sh"
   },
   "repository": {
     "type": "git",
