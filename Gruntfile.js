@@ -1,43 +1,54 @@
 'use strict';
 
+// require('load-grunt-tasks')(grunt);
+const eslintformat = require('./lib/eslintformat');
 const _ = require('lodash');
 const config = require('./config');
-const common = require('./lib/common');
+const tools = require('./lib/tools');
 const path = require('path');
 const reporter = require('./lib/reporter');
 const data = {};
+
 global.testData = {};
-function mochaTest() {
-  const base = config.sources;
-  const result = {};
-  data.projects = common.explore(config.sources);
-  data.projects.forEach((dir) => {
-    const testDir = base + path.sep + dir + path.sep + 'test';
-    if (common.isDir(testDir)) {
-      const src = testDir + path.sep + '**' + path.sep + '*.js';
-      result[dir] = {
-        options: {
-          reporter: reporter,
-          project: dir,
-          clearRequireCache: true,
-          timeout: 10000,
-        },
-        src: [src],
-      };
-    }
-  });
-  const keys = Object.keys(result).sort();
-  console.log(`Testing ${keys.length} projects:`);
-  console.log(keys);
-  // target specific project
-  // return {'cta-flowcontrol': result['cta-flowcontrol']};
-  return result;
-}
+
+const base = config.sources;
+const mochaTest = {};
+const eslintTargets = [];
+data.projects = tools.explore(config.sources);
+data.projects.forEach((dir) => {
+  const testDir = base + path.sep + dir + path.sep + 'test';
+  if (tools.isDir(testDir)) {
+    const src = testDir + path.sep + '**' + path.sep + '*.js';
+    mochaTest[dir] = {
+      options: {
+        reporter: reporter,
+        project: dir,
+        clearRequireCache: true,
+        timeout: 10000,
+      },
+      src: [src],
+    };
+  }
+  eslintTargets.push(path.join(base, dir, 'test'));
+  eslintTargets.push(path.join(base, dir, 'lib'));
+});
+// const keys = Object.keys(result).sort();
+// console.log(`Testing ${keys.length} projects:`);
+// console.log(keys);
+// target specific project
+// return {'cta-flowcontrol': result['cta-flowcontrol']};
 
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.initConfig({
-    mochaTest: mochaTest(),
+    mochaTest: mochaTest,
+    eslint: {
+      options: {
+        format: eslintformat,
+      },
+      target: eslintTargets.slice(0, 1),
+    },
   });
   grunt.registerTask('testResult', '', function() {
     const done = this.async();
@@ -73,4 +84,5 @@ module.exports = function(grunt) {
     }, 1000);
   });
   grunt.registerTask('test', ['mochaTest', 'testResult']);
+  grunt.registerTask('lint', ['eslint']);
 };
