@@ -1,0 +1,61 @@
+version: '2'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  mongodb:
+      image: "mongo"
+      ports:
+        - "27017:27017"
+  ids:
+    image: cta-oss/cta-app-instancedataservice:compose
+    ports:
+      - "3000:3000"
+    depends_on:
+      - rabbitmq
+      - mongodb
+  eds:
+    image: cta-oss/cta-app-executiondataservice:compose
+    ports:
+      - "3010:3010"
+    environment:
+      NODE_ENV: docker
+    depends_on:
+      - rabbitmq
+      - mongodb
+      - sch
+      - sds
+      - ids
+  jms:
+    image: cta-oss/cta-app-jobmanagerdataservice:compose
+    ports:
+      - "3012:3012"
+    depends_on:
+      - rabbitmq
+      - ids
+      - eds
+  sch:
+    image: cta-oss/cta-app-schedulerdataservice:compose
+    ports:
+      - "3011:3011"
+    depends_on:
+      - rabbitmq
+      - mongodb
+      - sds
+  agent:
+    image: cta-oss/cta-app-agent:compose
+    ports:
+      - "3001:3001"
+    depends_on:
+      - rabbitmq
+  sds:
+    image: cta-oss/cta-app-scenariodataservice:compose
+    ports:
+      - "3005:3005"
+    depends_on:
+      - rabbitmq
+      - mongodb
+
+
