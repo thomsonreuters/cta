@@ -57,5 +57,14 @@ services:
     depends_on:
       - rabbitmq
       - mongodb
+  nos:
+    image: cta-oss/cta-app-notificationservice:compose
+    ports:
+      - "3006:3006"
+    depends_on:
+      - rabbitmq
+      - sch
+      - eds
+      - jms
 
 
