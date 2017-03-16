@@ -46,6 +46,7 @@ services:
       - sds
   agent:
     image: docker.int.thomsonreuters.com:5001/cta-oss/cta-app-agent:compose
+    hostname: agt-docker
     ports:
       - "3001:3001"
     depends_on:
