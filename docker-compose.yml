@@ -46,6 +46,7 @@ services:
       - sds
   agent:
     image: cta-oss/cta-app-agent:compose
+    hostname: agt-docker
     ports:
       - "3001:3001"
     depends_on:
