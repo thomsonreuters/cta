@@ -67,5 +67,13 @@ services:
       - sch
       - eds
       - jms
+  hck:
+      build: .
+      image: cta-oss/cta-app-healthcheckdataservice:compose
+      ports:
+        - "8000:8000"
+      depends_on:
+        - rabbitmq
+
 
 
