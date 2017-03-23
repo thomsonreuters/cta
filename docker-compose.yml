@@ -69,7 +69,7 @@ services:
       - jms
   hck:
       build: .
-      image: cta-oss/cta-app-healthcheckdataservice:compose
+      image: docker.int.thomsonreuters.com:5001/cta-oss/cta-app-healthcheckdataservice:compose
       ports:
         - "8000:8000"
       depends_on:
