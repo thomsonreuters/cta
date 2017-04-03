@@ -29,7 +29,7 @@ services:
       - sds
       - ids
   jms:
-    image: docker.int.thomsonreuters.com:5001/cta-oss/cta-app-jobmanagerdataservice:compose
+    image: docker.int.thomsonreuters.com:5001/cta-oss/cta-app-jobmanagerservice:compose
     ports:
       - "3012:3012"
     depends_on:
