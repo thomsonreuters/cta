@@ -66,12 +66,13 @@ config.prefix = custom.prefix || 'cta-';
  ******************************************************************************************/
 
 config.repositories = custom.repositories || {
-  "cta-restapi": "git@git.sami.int.thomsonreuters.com:compass/cta-restapi.git",
   "cta-app-agent": "git@git.sami.int.thomsonreuters.com:compass/cta-app-agent.git",
   "cta-app-boilerplate": "git@git.sami.int.thomsonreuters.com:compass/cta-app-boilerplate.git",
   "cta-app-executiondataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-executiondataservice.git",
+  "cta-app-healthcheckdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-healthcheckdataservice.git",
   "cta-app-instancedataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-instancedataservice.git",
   "cta-app-jobmanagerdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-jobmanagerdataservice.git",
+  "cta-app-notificationservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-notificationservice.git",
   "cta-app-scenariodataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-scenariodataservice.git",
   "cta-app-schedulerdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-schedulerdataservice.git",
   "cta-brick": "git@git.sami.int.thomsonreuters.com:compass/cta-brick.git",
@@ -81,16 +82,16 @@ config.repositories = custom.repositories || {
   "cta-dblayer": "git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git",
   "cta-expresswrapper": "git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
   "cta-flowcontrol": "git@git.sami.int.thomsonreuters.com:compass/cta-flowcontrol.git",
+  "cta-healthcheck": "git@git.sami.int.thomsonreuters.com:compass/cta-healthcheck.git",
   "cta-io": "git@git.sami.int.thomsonreuters.com:compass/cta-io.git",
   "cta-logger": "git@git.sami.int.thomsonreuters.com:compass/cta-logger.git",
   "cta-messaging": "git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
+  "cta-restapi": "git@git.sami.int.thomsonreuters.com:compass/cta-restapi.git",
   "cta-security": "git@git.sami.int.thomsonreuters.com:compass/cta-security.git",
   "cta-silo": "git@git.sami.int.thomsonreuters.com:compass/cta-silo.git",
   "cta-tool": "git@git.sami.int.thomsonreuters.com:compass/cta-tool.git",
   "cta-tool-boilerplate": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-boilerplate.git",
-  "cta-tool-request": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-request.git",
-  "cta-app-healthcheckdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-healthcheckdataservice.git",
-  "cta-app-notificationservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-notificationservice.git"
+  "cta-tool-request": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-request.git"
 };
 
 module.exports = config;
