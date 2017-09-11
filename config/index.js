@@ -71,7 +71,7 @@ config.repositories = custom.repositories || {
   "cta-app-executiondataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-executiondataservice.git",
   "cta-app-healthcheckdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-healthcheckdataservice.git",
   "cta-app-instancedataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-instancedataservice.git",
-  "cta-app-jobmanagerdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-jobmanagerdataservice.git",
+  "cta-app-jobmanagerservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-jobmanagerservice.git",
   "cta-app-notificationservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-notificationservice.git",
   "cta-app-scenariodataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-scenariodataservice.git",
   "cta-app-schedulerdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-schedulerdataservice.git",
