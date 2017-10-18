@@ -68,7 +68,6 @@ services:
       - eds
       - jms
   hck:
-      build: .
       image: docker.int.thomsonreuters.com:5001/cta-oss/cta-app-healthcheckdataservice:compose
       ports:
         - "8000:8000"
