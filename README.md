@@ -18,9 +18,13 @@ This document provides information for **two types of audiences**.
 
 1. **CTA-OSS Developers** who would like to learn or to implement **CTA-OSS Framework**.
 
+## CTA
+
+We define **CTA** as  Open Source Software which includes all **CTA Applications** and **CTA-OSS Framework**.
+
 ## CTA Application
 
-**CTA Application** has implemented **CTA-OSS Framework** to provide **the test platform**. In this level (application level), we are providing serveral applications as **the test platform**.
+**CTA Application** has implemented **CTA-OSS Framework** to provide **the test platform**. In this level (application level), we are providing serveral applications as **the test platform**. **All CTA Applications** are **Open Source**.
 
 ## CTA-OSS Framework
 
@@ -58,4 +62,4 @@ The **Brick** provides **implementation** by **Brick's functionalities**. The **
 
 ## License
 
-All **CTA Applications** and **CTA-OSS Framework** are [**Apache Licensed, version 2.0**](https://www.apache.org/licenses/LICENSE-2.0), (see [LICENSE](LICENSE) file)
+We define the **CTA** as Open Source Software which includes all **CTA Applications** and **CTA-OSS Framework**. **CTA** is [**Apache Licensed, version 2.0**](https://www.apache.org/licenses/LICENSE-2.0), (see [LICENSE](LICENSE) file)
