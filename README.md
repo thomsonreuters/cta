@@ -46,20 +46,17 @@ The **Brick** provides **implementation** by **Brick's functionalities**. The **
 
 ## Features
 
-Please check the [feature guide](features.md) for a list of all features provided by CTA.
+* **Customizable Tests** - Users can design and provide your own test process
+* **Manage Instance** - Users can define the instance that is running tests
+* **Manage Test Executions** - Users can specify how the tests execute
+* **Collect Information & Test Results** - Users can collect the information during the test and test results
+* **Manage Notification**: Users can specify how to notify when the test completes
 
-[back to top](#guidelines)
+## Contributing
 
-### 2. Point
+**CTA Application** and **CTA-OSS Framework** are **open source projects**. **We are always looking to receive contributions from our community to make CTA even better than they are today!** There are many ways for you to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into CTA itself.
 
-[back to top](#guidelines)
+## License
 
-### 3. Log Levels
+All **CTA Applications** and **CTA-OSS Framework** are [**Apache Licensed, version 2.0**](https://www.apache.org/licenses/LICENSE-2.0)
 
-[back to top](#guidelines)
-
-------
-
-## To Do
-
-* More Points
