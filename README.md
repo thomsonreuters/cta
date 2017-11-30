@@ -58,5 +58,4 @@ The **Brick** provides **implementation** by **Brick's functionalities**. The **
 
 ## License
 
-All **CTA Applications** and **CTA-OSS Framework** are [**Apache Licensed, version 2.0**](https://www.apache.org/licenses/LICENSE-2.0)
-
+All **CTA Applications** and **CTA-OSS Framework** are [**Apache Licensed, version 2.0**](https://www.apache.org/licenses/LICENSE-2.0), (see [LICENSE](LICENSE) file)
