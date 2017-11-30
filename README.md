@@ -1,78 +1,65 @@
-Compass Test Automation Opensource  
-==================================
+# cta [ ![build status](https://git.sami.int.thomsonreuters.com/compass/cta/badges/master/build.svg)](https://git.sami.int.thomsonreuters.com/compass/cta/commits/master) [![coverage report](https://git.sami.int.thomsonreuters.com/compass/cta/badges/master/coverage.svg)](https://git.sami.int.thomsonreuters.com/compass/cta/commits/master)
 
-* [What is Compass Test Automation (CTA)](README.md)
-* [Features](features.md)
-* [Deployment](deployment.md)
-* [Contributing](contributing.md)
-* [Services](services.md)
-* [Components](components.md)
-* [Events](events.md)
-* [Data](data.md)
-* [Cement](cement.md)
+CTA (Compass Test Automation) Application implementing CTA-OSS Framework
 
-# Compass Test Automation
+## General Overview
 
-# Features
+**CTA (Compass Test Automation)** is **_a general purpose_ test platform** that is successfully used by **Thomson Reuters Business Units**.
+**CTA** supports **_a wide range of_ tests**, such as _functional testing_, _performance testing_, and _testing live products_ for early detection of incidents.
+**The result of the tests** is presented in _detail reports_ and _dashboards_ in **real-time**. 
+**Failed tests** for live products **can raise alarms** on _operational dashboards_ for supporters to take any immediate action.
+**CTA** has a good level of **self-service** and **the majority of its functionalities** can be operated via its API.
 
-Compass Test Automation (CTA) is a successful general purpose test platform that is being adopted by various TR Business Units. 
-It supports a wide range of tests from functional testing, to performance testing, to testing live products for
-early detection of incidents. The result of the tests are presented in near real-time in detailed reports and dashboards. 
-Failing tests for live products can raise alarms on operational dashboards for support staff to take immediate
-action. CTA has a good level of selfservice and the majority of its functionality can be driven
-via its API.
+## Audiences
 
-Please check the [feature guide](features.md) for a list of all features provided by CTA.
+This document provides information for **two types of audiences**.
 
-# Deployment
+1. **CTA Application Developers** who would like to learn or to use **CTA Application**.
 
-CTA can be deployed using docker as one docker image containing all CTA components and required services.
-For more complex deployments, one can deploy a set of docker images to ensure resiliency of all the
-different components and services offered by CTA.
+1. **CTA-OSS Developers** who would like to learn or to implement **CTA-OSS Framework**.
 
-Please follow the [deployment guide](deployment.md) for instructions on how to deploy CTA.
+## CTA
 
-# Contributing
+We define **CTA** as  Open Source Software which includes all **CTA Applications** and **CTA-OSS Framework**.
 
-CTA is an open source project and we are always looking to receive contributions from our community to make CTA even better than it is today! 
-There are many ways for you to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or 
-writing code which can be incorporated into CTA itself.
+## CTA Application
 
-Please follow the [contributing guide](contributing.md) for instructions on how to contribute to CTA.
+**CTA Application** has implemented **CTA-OSS Framework** to provide **the test platform**. In this level (application level), we are providing serveral applications as **the test platform**. **All CTA Applications** are **Open Source**.
 
-# Services and Components
+## CTA-OSS Framework
 
-CTA is composed of a rich set of components taking care of scheduling tests, running tests, managing tests, alerting/reacting on results of tests
-and more.
+**CTA-OSS (CTA Open Source Software) Framework** is an opensource software that provides
 
-Please follow the [services guide](services.md) for a detailled description of each services.
+### Brick as Component
 
-Please follow the [components guide](components.md) for a detailled description of each components.
+In **CTA-OSS**, we introduce **Brick** as core component which is **a unit of process reposibility**. The **Brick** _emphasizes_ **the separation of concerns** with respect to the wide-ranging functionality available throughout a specified software system. It _encourages_ **a reuse-based approach** to **defining**, **implementing** and **composing** loosely-coupled independent components into systems.
 
-# Event Driven
+### Event-Driven Message System
 
-All communication within CTA is events based with payloads formatted in JSON.
+In **CTA-OSS**, components implement **Event-Driven** approach. The components _communicate_ on **event-driven message** with JSON-formatted payloads. The component can **publish**/**subscribe** on message's **topic** and **nature**.
 
-Such decision allow for the incorporation and extension of CTA with any combination of languages and technologies.
+### Configuration-Based System
 
-Please follow the [events guide](events.md) for a list and description of events exchanged thoughout the system.
+In **CTA-OSS**, we separate the **definition**, **implementation** and **composition** of processes.
 
-# Data Schema
+* The **definition**, **_what a component is_**, is defined within **configuration**.
+* The **implementation**, **_what a component does_**, is constructed within **Brick**.
+* The **composition**, **_how a component does_**, is defined within **configuration**.
 
-A lot of Data is handled and configured by and for CTA.
+The **Brick** provides **implementation** by **Brick's functionalities**. The **configuration** provides **definition** and **composition** by providing _properties_ that **Brick** uses.
 
-- Configuration Data : to define tests, test suites, test configurations and scenario of tests.
-- Audit Data : to track configuration changes
-- Test Data : to gather results of tests
+## Features
 
-Please follow the [data guide](data.md) for a description of the data schema used by CTA.
+* **Customizable Tests** - Users can design and provide your own test process
+* **Manage Instance** - Users can define the instance that is running tests
+* **Manage Test Executions** - Users can specify how the tests execute
+* **Collect Information & Test Results** - Users can collect the information during the test and test results
+* **Manage Notification**: Users can specify how to notify when the test completes
 
-# Cement and Bricks
+## Contributing
 
-A best way to understand the mechanic and logic of a project is to look at the flow of data. 
-Nevertheless, such flow of data is often hidden in the source code of a system.
-To ease readability of such flows, CTA created a framework to track via configuration files
-which data flows to which elements (bricks) of the system.
-All the transmission of data between bricks being managed (cemented) by a manager (cement).
+**CTA Application** and **CTA-OSS Framework** are **open source projects**. **We are always looking to receive contributions from our community to make CTA even better than they are today!** There are many ways for you to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into CTA itself.
 
-Please follow the [cement and bricks guide](cement.md) for a description of this framework.
+## License
+
+We define the **CTA** as Open Source Software which includes all **CTA Applications** and **CTA-OSS Framework**. **CTA** is [**Apache Licensed, version 2.0**](https://www.apache.org/licenses/LICENSE-2.0), (see [LICENSE](LICENSE) file)
