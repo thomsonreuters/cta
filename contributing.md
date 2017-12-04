@@ -1,4 +1,4 @@
-# Contributing
+# Contributing Guide
 
 ## Bug Reports
 
@@ -150,3 +150,5 @@ You will need to fork the [Compass Test Automation repository ](https://git.sami
     and in the body provide more details about what your changes do. Also mention the number of the issue where discussion has taken place, eg "Issue #123".
 
 Thank you for your contribution!
+
+[back to README](readme.md)

@@ -58,7 +58,15 @@ The **Brick** provides **implementation** by **Brick's functionalities**. The **
 
 ## Contributing
 
-**CTA Application** and **CTA-OSS Framework** are **open source projects**. **We are always looking to receive contributions from our community to make CTA even better than they are today!** There are many ways for you to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into CTA itself.
+**CTA Application** and **CTA-OSS Framework** are **open source projects**. We are **always** looking to receive contributions from **our community** to make CTA even better than they are today! There are many ways for you to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into CTA itself.
+
+### Contributing Guide
+
+Read our [contributing guide](contributing.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
+
+### Agreements
+
+We provide **agreements**, [CTA Entity Contributor License Agreement](CTAEntityContributorLicenseAgreement.pdf) & [CTA Individual Contributor License Agreement](CTAIndividualContributorLicenseAgreement.pdf) for contributors in our community. Please review them.
 
 ## License
 
