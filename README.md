@@ -62,7 +62,7 @@ The **Brick** provides **implementation** by **Brick's functionalities**. The **
 
 ### Contributing Guide
 
-Read our [contributing guide](contributing.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
+Read our [contributing guide](contributing.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to CTA.
 
 ### Agreements
 
