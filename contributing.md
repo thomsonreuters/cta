@@ -151,4 +151,4 @@ You will need to fork the [Compass Test Automation repository ](https://git.sami
 
 Thank you for your contribution!
 
-[back to README](readme.md)
+[back to README](READEME.md)
