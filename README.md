@@ -60,9 +60,13 @@ The **Brick** provides **implementation** by **Brick's functionalities**. The **
 
 **CTA Application** and **CTA-OSS Framework** are **open source projects**. We are **always** looking to receive contributions from **our community** to make CTA even better than they are today! There are many ways for you to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into CTA itself.
 
+### Code of Conduct
+
+CTA has adopted a [Code of Conduct](CODE_OF_CONDUCT.md) that we expect project participants to adhere to.
+
 ### Contributing Guide
 
-Read our [contributing guide](contributing.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to CTA.
+Read our [Contributing Guide](contributing.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to CTA.
 
 ### Agreements
 
