@@ -1,3 +1,10 @@
+/**
+ * This source code is provided under the Apache 2.0 license and is provided
+ * AS IS with no warranty or guarantee of fit for purpose. See the project's
+ * LICENSE.md for details.
+ * Copyright 2017 Thomson Reuters. All rights reserved.
+ */
+
 'use strict';
 
 const path = require('path');
@@ -64,34 +71,49 @@ config.prefix = custom.prefix || 'cta-';
  * CTA known repositories that will be cloned/updated each time your run the tool          *
  *                                                                                         *
  ******************************************************************************************/
+/*
+  "cta-app-agent": "git@github.com:thomsonreuters/cta-app-agent.git",
+  "cta-app-boilerplate": "git@github.com:thomsonreuters/cta-app-boilerplate.git",
+  "cta-app-executiondataservice": "git@github.com:thomsonreuters/cta-app-executiondataservice.git",
+  "cta-app-healthcheckdataservice": "git@github.com:thomsonreuters/cta-app-healthcheckdataservice.git",
+  "cta-app-instancedataservice": "git@github.com:thomsonreuters/cta-app-instancedataservice.git",
+  "cta-app-jobmanagerservice": "git@github.com:thomsonreuters/cta-app-jobmanagerservice.git",
+  "cta-app-notificationservice": "git@github.com:thomsonreuters/cta-app-notificationservice.git",
+  "cta-app-scenariodataservice": "git@github.com:thomsonreuters/cta-app-scenariodataservice.git",
+  "cta-app-schedulerdataservice": "git@github.com:thomsonreuters/cta-app-schedulerdataservice.git",
+  "cta-brick": "git@github.com:thomsonreuters/cta-brick.git",
+  "cta-brick-boilerplate": "git@github.com:thomsonreuters/cta-brick-boilerplate.git",
+  "cta-brick-request": "git@github.com:thomsonreuters/cta-brick-request.git",
+  "cta-common": "git@github.com:thomsonreuters/cta-common.git",
+  "cta-dblayer": "git@github.com:thomsonreuters/cta-dblayer.git",
+  "cta-expresswrapper": "git@github.com:thomsonreuters/cta-expresswrapper.git",
+  "cta-flowcontrol": "git@github.com:thomsonreuters/cta-flowcontrol.git",
+  "cta-healthcheck": "git@github.com:thomsonreuters/cta-healthcheck.git",
+  "cta-io": "git@github.com:thomsonreuters/cta-io.git",
+  "cta-logger": "git@github.com:thomsonreuters/cta-logger.git",
+  "cta-messaging": "git@github.com:thomsonreuters/cta-messaging.git",
+  "cta-restapi": "git@github.com:thomsonreuters/cta-restapi.git",
+  "cta-security": "git@github.com:thomsonreuters/cta-security.git",
+  "cta-silo": "git@github.com:thomsonreuters/cta-silo.git",
+  "cta-tool": "git@github.com:thomsonreuters/cta-tool.git",
+  "cta-tool-boilerplate": "git@github.com:thomsonreuters/cta-tool-boilerplate.git",
+  "cta-tool-request": "git@github.com:thomsonreuters/cta-tool-request.git"
+ */
+
 
 config.repositories = custom.repositories || {
-  "cta-app-agent": "git@git.sami.int.thomsonreuters.com:compass/cta-app-agent.git",
-  "cta-app-boilerplate": "git@git.sami.int.thomsonreuters.com:compass/cta-app-boilerplate.git",
-  "cta-app-executiondataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-executiondataservice.git",
-  "cta-app-healthcheckdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-healthcheckdataservice.git",
-  "cta-app-instancedataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-instancedataservice.git",
-  "cta-app-jobmanagerservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-jobmanagerservice.git",
-  "cta-app-notificationservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-notificationservice.git",
-  "cta-app-scenariodataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-scenariodataservice.git",
-  "cta-app-schedulerdataservice": "git@git.sami.int.thomsonreuters.com:compass/cta-app-schedulerdataservice.git",
-  "cta-brick": "git@git.sami.int.thomsonreuters.com:compass/cta-brick.git",
-  "cta-brick-boilerplate": "git@git.sami.int.thomsonreuters.com:compass/cta-brick-boilerplate.git",
-  "cta-brick-request": "git@git.sami.int.thomsonreuters.com:compass/cta-brick-request.git",
-  "cta-common": "git@git.sami.int.thomsonreuters.com:compass/cta-common.git",
-  "cta-dblayer": "git@git.sami.int.thomsonreuters.com:compass/cta-dblayer.git",
-  "cta-expresswrapper": "git@git.sami.int.thomsonreuters.com:compass/cta-expresswrapper.git",
-  "cta-flowcontrol": "git@git.sami.int.thomsonreuters.com:compass/cta-flowcontrol.git",
-  "cta-healthcheck": "git@git.sami.int.thomsonreuters.com:compass/cta-healthcheck.git",
-  "cta-io": "git@git.sami.int.thomsonreuters.com:compass/cta-io.git",
-  "cta-logger": "git@git.sami.int.thomsonreuters.com:compass/cta-logger.git",
-  "cta-messaging": "git@git.sami.int.thomsonreuters.com:compass/cta-messaging.git",
-  "cta-restapi": "git@git.sami.int.thomsonreuters.com:compass/cta-restapi.git",
-  "cta-security": "git@git.sami.int.thomsonreuters.com:compass/cta-security.git",
-  "cta-silo": "git@git.sami.int.thomsonreuters.com:compass/cta-silo.git",
-  "cta-tool": "git@git.sami.int.thomsonreuters.com:compass/cta-tool.git",
-  "cta-tool-boilerplate": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-boilerplate.git",
-  "cta-tool-request": "git@git.sami.int.thomsonreuters.com:compass/cta-tool-request.git"
-};
+    "cta-app-agent": "https://github.com/thomsonreuters/cta-app-agent",
+    "cta-brick": "https://github.com/thomsonreuters/cta-brick",
+    "cta-common": "https://github.com/thomsonreuters/cta-common",
+    "cta-expresswrapper": "https://github.com/thomsonreuters/cta-expresswrapper",
+    "cta-flowcontrol": "https://github.com/thomsonreuters/cta-flowcontrol",
+    "cta-healthcheck": "https://github.com/thomsonreuters/cta-healthcheck",
+    "cta-io": "https://github.com/thomsonreuters/cta-io",
+    "cta-logger": "https://github.com/thomsonreuters/cta-logger",
+    "cta-messaging": "https://github.com/thomsonreuters/cta-messaging",
+    "cta-restapi": "https://github.com/thomsonreuters/cta-restapi",
+    "cta-silo": "https://github.com/thomsonreuters/cta-silo",
+    "cta-tool": "https://github.com/thomsonreuters/cta-tool"
+  };
 
 module.exports = config;
