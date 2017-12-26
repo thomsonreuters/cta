@@ -1,3 +1,3 @@
 {
-  "extends": "cta"
+  "extends": "@thomsonreuters/eslint-config-cta"
 }

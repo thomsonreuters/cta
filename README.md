@@ -1,4 +1,6 @@
-# cta [ ![build status](https://git.sami.int.thomsonreuters.com/compass/cta/badges/master/build.svg)](https://git.sami.int.thomsonreuters.com/compass/cta/commits/master) [![coverage report](https://git.sami.int.thomsonreuters.com/compass/cta/badges/master/coverage.svg)](https://git.sami.int.thomsonreuters.com/compass/cta/commits/master)
+# cta
+[![Build Status](https://travis-ci.org/thomsonreuters/cta.svg?branch=master)](https://travis-ci.org/thomsonreuters/cta)
+[![Coverage Status](https://coveralls.io/repos/github/thomsonreuters/cta/badge.svg?branch=master)](https://coveralls.io/github/thomsonreuters/cta?branch=master)
 
 CTA (Compass Test Automation) Application implementing CTA-OSS Framework
 
@@ -6,7 +8,7 @@ CTA (Compass Test Automation) Application implementing CTA-OSS Framework
 
 **CTA (Compass Test Automation)** is **_a general purpose_ test platform** that is successfully used by **Thomson Reuters Business Units**.
 **CTA** supports **_a wide range of_ tests**, such as _functional testing_, _performance testing_, and _testing live products_ for early detection of incidents.
-**The result of the tests** is presented in _detail reports_ and _dashboards_ in **real-time**. 
+**The result of the tests** is presented in _detail reports_ and _dashboards_ in **real-time**.
 **Failed tests** for live products **can raise alarms** on _operational dashboards_ for supporters to take any immediate action.
 **CTA** has a good level of **self-service** and **the majority of its functionalities** can be operated via its API.
 
