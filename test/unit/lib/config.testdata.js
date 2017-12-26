@@ -11,7 +11,7 @@ module.exports = {
   log: path.resolve(root, 'output.log'),
   prefix: 'cta-',
   repositories: {
-    one: 'git@git.sami.int.thomsonreuters.com:compass/cta-sampleone.git',
-    two: 'git@git.sami.int.thomsonreuters.com:compass/cta-sampletwo.git'
+    one: 'git@github.com:thomsonreuters/cta-sampleone.git',
+    two: 'git@github.com:thomsonreuters/cta-sampletwo.git'
   },
 };

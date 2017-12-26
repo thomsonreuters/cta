@@ -4,24 +4,25 @@
   "description": "Compass Test Automation main repository",
   "author": "CTA Team <cta@thomsonreuters.com>",
   "scripts": {
-    "postinstall": "node lib",
     "all": "node lib",
     "clone": "node lib -c",
     "pull": "node lib -p",
-    "test": "grunt test --force",
-    "unit-test": "NODE_PATH=. _mocha",
+    "grunt-test": "grunt test --force",
+    "test": "NODE_PATH=. _mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "lint": "eslint --quiet lib test",
     "docs": "jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
   },
   "repository": {
     "type": "git",
-    "url": "git@git.sami.int.thomsonreuters.com:compass/cta.git"
+    "url": "git@github.com:thomsonreuters/cta.git"
   },
   "engines": {
     "node": "6.8.1"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
     "co": "^4.6.0",
     "fs-extra": "^1.0.0",
     "jsonfile": "~2.2.3",
@@ -29,17 +30,18 @@
     "mkdirp": "~0.5.1",
     "q": "~1.4.1",
     "simple-git": "^1.54.0",
-    "winston": "~2.1.1",
-    "yargs": "~4.6.0",
     "text-table": "^0.2.0",
-    "chalk": "^1.1.3"
+    "winston": "~2.1.1",
+    "yargs": "~4.6.0"
   },
   "devDependencies": {
+    "@thomsonreuters/eslint-config-cta": "^1.0.0",
     "chai": "^3.5.0",
+    "coveralls": "^3.0.0",
     "eslint": "^3.2.2",
-    "eslint-config-cta": "git+ssh://git@git.sami.int.thomsonreuters.com:compass/eslint-config-cta.git",
     "fs": "0.0.1-security",
-    "grunt": "~1.0.1",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
     "grunt-eslint": "^19.0.0",
     "grunt-mocha-test": "~0.12.7",
     "istanbul": "^0.4.5",
