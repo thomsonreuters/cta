@@ -7,9 +7,10 @@
     "all": "node lib",
     "clone": "node lib -c",
     "pull": "node lib -p",
-    "test": "grunt test --force",
-    "unit-test": "NODE_PATH=. _mocha",
+    "grunt-test": "grunt test --force",
+    "test": "NODE_PATH=. _mocha",
     "codecoverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "lint": "eslint --quiet lib test",
     "docs": "jsdoc --readme README.md lib -r -d docs && opener ./docs/index.html"
   },
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@thomsonreuters/eslint-config-cta": "^1.0.0",
     "chai": "^3.5.0",
+    "coveralls": "^3.0.0",
     "eslint": "^3.2.2",
     "fs": "0.0.1-security",
     "grunt": "^1.0.1",
