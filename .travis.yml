@@ -5,10 +5,16 @@ cache:
     - "node_modules"
 node_js:
   - "lts/*"
+
 install:
   - npm install
-script:
-  - npm run lint
-  - npm run test
-after_success:
-  - npm run coveralls
+
+jobs:
+  include:
+    - stage: test
+      script: npm run lint
+      env: lint
+    - script: npm run test
+      env: unit_test
+    - script: npm run coveralls
+      env: coverage
