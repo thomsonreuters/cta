@@ -3,7 +3,7 @@
 ## Bug Reports
 
 If you think you have found a bug in CTA, first make sure that you are testing against the latest version of Compass Test Automation - your issue may already have been fixed.
-If not, search our [issues list](../issues) on GitLab in case a similar issue has already been opened.
+If not, search our [issues list](../../issues) on GitLab in case a similar issue has already been opened.
 
 It is very helpful if you can prepare a reproduction of the bug. In other words, provide a small test case which we can run to confirm your bug. It makes it easier to find the problem and to fix it.
 
@@ -11,7 +11,7 @@ It is very helpful if you can prepare a reproduction of the bug. In other words,
 
 If you find yourself wishing for a feature that doesn't exist in Compass Test Automation, you are probably not alone. There are bound to be others out there with similar needs.
 Many of the features that Compass Test Automation has today have been added because our users saw the need.
-Open an issue on our [issues list](../issues) with label `feature-request` on GitLab which describes the feature you would like to see, why you need it, and how it should work.
+Open an issue on our [issues list](../../issues) with label `feature-request` on GitLab which describes the feature you would like to see, why you need it, and how it should work.
 
 ## Setting the environment
 
@@ -119,11 +119,11 @@ It may be that somebody is already working on it, or that there are particular i
 
 We enjoy working with contributors to get their code accepted. There are many approaches to fixing a problem and it is important to find the best approach before writing too much code.
 
-The process for contributing to any of the [Compass Test Automation repositories](..) is similar. Details can be found below.
+The process for contributing to any of the [Compass Test Automation repositories](../..) is similar. Details can be found below.
 
 ### Fork and clone the repository
 
-You will need to fork the [Compass Test Automation repository ](..)and clone it to your local machine.
+You will need to fork the [Compass Test Automation repository ](../..)and clone it to your local machine.
 
 ### Submitting your changes
 
